@@ -1,0 +1,45 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    background-color: #DAC29A;
+    
+}
+
+nav{
+    width: 90%;
+    height: 80px;
+
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.right{
+    display: flex;
+    ul{
+        display: flex;
+        li{
+            margin-left: 20px;
+            list-style: none;
+            text-decoration: none;
+            .link{
+                text-decoration: none;
+                color: black;
+
+            }
+        }
+    }
+}
