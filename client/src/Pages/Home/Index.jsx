@@ -11,6 +11,7 @@ import { MdDone } from "react-icons/md";
 import { useState } from "react";
 import axios from 'axios'
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
 function Index() {
@@ -136,10 +137,10 @@ function Index() {
         <div className="happyCustomers__section__container">
           <h3>Happy Customers</h3>
           <br />
-          <div className="cardsContainer">
-            {cards.map((card)=>{
+          <div className="cardsContainer" >
+            {cards?.map((card, index)=>{
                 return(
-<div className="happyCustomers__section__card">
+<div className="happyCustomers__section__card" key={index}>
             <div className="happyCustomers__section__card__header">
               <div className="happyCustomers__section__card__header__img">
                 <img src={`${card.image}`} alt="" />
@@ -159,7 +160,10 @@ function Index() {
             <button onClick={()=>{
                 axios.delete(`http://localhost:2002/api/workers/${card._id}`).then((res)=>getData())
             }}>Delete</button>
+            <Link to={`/details/${card._id}`}>
             <button>Details</button>
+            </Link>
+            
           </div>
                 )
             })}

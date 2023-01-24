@@ -68,8 +68,8 @@ app.post(
   );
 
   app.get("/api/workers/:id", async (req, res) => {
-    const { id } = req.params;
-    const Worker = await WorkerModel.findById(id);
+    const { _id } = req.params;
+    const Worker = await WorkerModel.findById(_id);
     return res.status(200).send({worker: Worker});
   });
 
