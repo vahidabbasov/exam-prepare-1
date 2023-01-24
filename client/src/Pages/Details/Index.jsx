@@ -12,7 +12,7 @@ function Index() {
   },[])
   console.log(cards);
   return (
-    <div>{cards.name}</div>
+    <div>{cards.worker?.name}</div>
   )
 }
 

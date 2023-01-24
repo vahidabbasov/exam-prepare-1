@@ -47,16 +47,16 @@ app.get('/api/workers', (req, res)=>{
 
 app.post(
     "/api/workers",
-    (req, res, next) => {
-      const { error } = addWorkerSchema.validate(req.body);
+    // (req, res, next) => {
+    //   const { error } = addWorkerSchema.validate(req.body);
   
-      if (error == null) next();
-      else {
-        const { details } = error;
-        const message = details.map((i) => i.message).join(",");
-        res.status(422).json({ error: message });
-      }
-    },
+    //   if (error == null) next();
+    //   else {
+    //     const { details } = error;
+    //     const message = details.map((i) => i.message).join(",");
+    //     res.status(422).json({ error: message });
+    //   }
+    // },
     async (req, res) => {
       const newWorker = new WorkerModel({ ...req.body });
   
@@ -68,8 +68,8 @@ app.post(
   );
 
   app.get("/api/workers/:id", async (req, res) => {
-    const { _id } = req.params;
-    const Worker = await WorkerModel.findById(_id);
+    const { id } = req.params;
+    const Worker = await WorkerModel.findById(id);
     return res.status(200).send({worker: Worker});
   });
 
